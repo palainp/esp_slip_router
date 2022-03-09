@@ -47,4 +47,21 @@ typedef enum {SIG_DO_NOTHING=0, SIG_START_SERVER=2, SIG_SEND_DATA, SIG_CONSOLE_R
 #define STATUS_LED  2
 #define MUX_STATUS_LED {PIN_FUNC_SELECT (PERIPHS_IO_MUX_GPIO2_U, FUNC_GPIO2);}
 
+//
+// Define a portmap from wifi address to local peer address
+// on the same port. This is a helper for ADD_INITIAL_PORTMAP
+//
+#define ADD_PORTMAP(PROTO, PORT) \
+       ip_portmap_add(PROTO, my_ip.addr, PORT, config.ip_addr_peer.addr, PORT);
+
+//
+// Add initial portmap in the ADD_INITIAL_PORTMAP macro
+// If HAVE_INITIAL_PORTMAP is undefined, nothing is added
+//
+#define HAVE_INITIAL_PORTMAP 1
+#define ADD_INITIAL_PORTMAP \
+{ \
+       ADD_PORTMAP(IP_PROTO_TCP, 1883); /* MQTT */    \
+}
+
 #endif

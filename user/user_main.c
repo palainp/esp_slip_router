@@ -675,6 +675,11 @@ static void ICACHE_FLASH_ATTR user_procTask(os_event_t *events)
     switch(events->sig)
     {
     case SIG_START_SERVER:
+#ifdef HAVE_INITIAL_PORTMAP
+        {
+            ADD_INITIAL_PORTMAP;
+        }
+#endif
 	// Anything to do here, when the repeater has received its IP?
 	break;
 
