@@ -18,7 +18,7 @@ void config_load_default(sysconfig_p config)
     os_sprintf(config->password,"%s",   WIFI_PASSWORD);
     config->auto_connect                = 1;
 
-    config->use_ap			= false;
+    config->use_ap			= WIFI_AP_ENABLE;
     os_sprintf(config->ap_ssid,"%s",    WIFI_AP_SSID);
     os_sprintf(config->ap_password,"%s",WIFI_AP_PASSWORD);
     config->ap_channel			= 1;

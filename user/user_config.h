@@ -8,6 +8,11 @@ typedef enum {SIG_DO_NOTHING=0, SIG_START_SERVER=2, SIG_SEND_DATA, SIG_CONSOLE_R
 #define WIFI_SSID            "ssid"
 #define WIFI_PASSWORD        "password"
 
+//
+// Define the softAP configuration
+// default is to not use AP mode
+//
+#define WIFI_AP_ENABLE          false
 #define WIFI_AP_SSID            "MyAP"
 #define WIFI_AP_PASSWORD        "password"
 
